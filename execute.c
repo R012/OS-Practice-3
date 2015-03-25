@@ -19,9 +19,13 @@ void execute_external_command(const char *command)
 	}
 	else{
 		pid = fork();
-		exec(args);
-		if(background==0){
-			wait(pid);
+		if(pid==0){
+			execvp(args);
 		}
-	}
+		else{
+			if(background==0){
+				wait(pid);
+			}
+		}
+	}	
 }

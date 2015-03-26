@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 		}else if(strcmp(buf, "exit")==0){
 			jobs_free_mem();
 			exit(0);
+		}else{
+			execute_external_command(buf);
 		}
 	}
 	return 0;
